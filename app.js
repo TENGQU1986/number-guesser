@@ -5,6 +5,10 @@ let count = 3;
 document.querySelector('#guess-form').addEventListener('submit', compare);
 
 function compare(e) {
+  const hint = document.createElement('div');
+  hint.className = 'hint';
+  document.querySelector('.main').appendChild(hint);
+  hint.textContent = `Guess ${result}, if you want to win:)`;
   const userInput = document.querySelector('.guess').value;
   const finalResult = document.querySelector('.result');
   function startOver() {
@@ -30,8 +34,5 @@ function compare(e) {
   } else {
     startOver();
   }
-
-  
-  
   e.preventDefault();
 }
